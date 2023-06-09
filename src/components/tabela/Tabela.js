@@ -5,6 +5,7 @@ function Tabela({tabela}) {
   return (
     <div className='container__tabela'>
         <div className='tabela__classificacao'>
+            <div className='tabela__titulo'>Classificação</div>
             <div className='legenda'>
                 <div className='colocacao'>#</div>
                 <div className='time'>
@@ -24,6 +25,9 @@ function Tabela({tabela}) {
                 <div className='linha' id={'linha'+time.pos} key={time.pos}>
                     <div className='colocacao'>{time.pos}</div>
                     <div className='time' id={time.id}>
+                        <div className="img__escudo" id={time.id} >
+                            <img src={require("/src/img/" + time.id.toLowerCase() + ".png")} alt={time.nome}/>
+                        </div>
                         <div id='nome'>{time.nome}</div>
                         <div id='p'>{time.pontos}</div>
                         <div id='j'>{time.jogos}</div>
@@ -38,6 +42,7 @@ function Tabela({tabela}) {
                 </div>
                                        
             ))} 
+            <div className='desempate'>Em caso de igualdade na pontuação, são critérios de desempate: 1. Vitórias 2. Saldo de gols 3. Gols pró</div>
         </div>
                     
     </div>

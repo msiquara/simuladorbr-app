@@ -275,7 +275,7 @@ function App() {
     function criarTabela(){
         for (let i = 0; i < times.length; i++){
             tempTabela[i] = {
-                id: times[i]+i,
+                id: times[i],
                 pos: i+1,
                 nome: nomesCompletos[i],
                 pontos: 0,

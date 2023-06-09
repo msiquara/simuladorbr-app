@@ -1,5 +1,4 @@
 .container__tabela{
-    flex: display;
     height: max-content;
     width: 65%;
     padding: 15px;
@@ -9,10 +8,21 @@
 }  
 
 .tabela__classificacao{
+    height: fit-content;
+    min-height: 100vh;
     padding: 10px;
     background-color: rgb(28,50,38);
     border-radius: 22px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.tabela__titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .legenda{
@@ -20,6 +30,7 @@
     font-size: 25px;
     padding: 0px 2px 0px 2px;
     color: rgb(94, 116, 104);
+    margin-bottom: 6px;
     border-bottom: 1px solid;
     border-color: rgb(94, 116, 104);
 }
@@ -42,22 +53,24 @@
     justify-content: center;
     width: 42.5px;
     height: 40px;
+
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
     margin: 2px;
     border-radius: 50%;
 }
-.linha:nth-of-type(-n+13) .colocacao{
+.linha:nth-of-type(-n+14) .colocacao{
     color: rgb(28,50,38);
     background-color: #288eea;    
 }
 
-.linha:nth-of-type(-n+7) .colocacao{
+.linha:nth-of-type(-n+8) .colocacao{
     color: rgb(28,50,38);
     background-color: #80ea79;    
 }
 
-.linha:nth-of-type(-n+5) .colocacao{
+.linha:nth-of-type(-n+6) .colocacao{
     background-color: #3bb552;    
 }
 
@@ -69,13 +82,22 @@
 .time{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
+}
+
+.img__escudo{
+    margin-left: 10px;
 }
 
 #nome{
     display: flex;
-    width: 40%;
+    width: 50%;
     justify-content: flex-start;
+}
+
+#p{
+    margin-right: 5px;
 }
 
 .time div{
@@ -85,3 +107,6 @@
     justify-content: center;
 }
     
+.desempate{
+    margin: 30px 22px 20px 33px;
+}
