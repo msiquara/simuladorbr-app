@@ -103,7 +103,8 @@ function App() {
     }
     
     function registraCasa(id, value) {
-        if ((value === '' && jogos[id].golsVisitante !== '') || (jogos[id].golsCasa !== '' && jogos[id].golsVisitante !== '')){
+        console.log(value)
+        if ((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '')){
             removeResultado(id)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
@@ -117,7 +118,8 @@ function App() {
     }
 
     function registraVisitante(id, value) {
-        if ((value === '' && jogos[id].golsCasa !== '') || (jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '')){
+        console.log(value)
+        if ((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '')){
             removeResultado(id)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
