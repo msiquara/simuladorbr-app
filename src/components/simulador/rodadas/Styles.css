@@ -1,0 +1,131 @@
+.rodadas__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 8px 0px 8px;
+
+    background-color: rgb(28,50,38);
+
+    border-radius: 22px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.rodadas__navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 360px;
+    min-width: 320px;
+    margin: 5px;
+    padding: 15px;
+    background-color: rgb(28,50,38);
+
+    border-bottom: 1px solid;
+    border-color: rgb(62,81,70);
+}
+
+.menu__conteudo {
+    display: none;
+    position: fixed;
+    background-color: rgb(28,50,38);
+    max-height: 280px;
+    width: 170px;
+
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+    right: 1;
+}
+
+.menu__conteudo a {
+    color: rgb(209, 210, 212);
+    padding: 12px 22px;
+    font-weight: normal;
+    display: block;
+}
+
+.menu__conteudo a:hover{
+    cursor: pointer;
+    background-color: rgb(27,44,35);
+}
+
+.show {
+    display: block;
+}
+
+#seta.show{
+    display: inline;
+    width: fit-content;
+    transform: rotate('90deg');
+    transition: 'transform 200ms ease';
+}
+
+.botao{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+
+    height: 60px;
+
+    border-radius: 10px;
+    padding: 16px;
+
+    color: rgb(122, 255, 132);
+    background-color: rgb(28,50,38);
+    cursor: pointer;
+
+    border-color: rgb(122, 255, 132);
+    border-style: solid;
+}
+
+.botao:disabled{
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    cursor: default;
+}
+
+.navbar__rodada{
+    display: flex;
+    align-items: center;
+    color: rgb(209, 210, 212);
+    background-color: rgb(22,36,28);
+
+    height: 50px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    border: 0px;
+    border-radius: 10px;
+    padding: 5px 14px 5px 14px;
+}
+
+.navbar__rodada:hover{
+    cursor: pointer;
+}
+
+.rodadas__container {
+    height: 614px;
+    max-width: 340px;
+    min-width: 250px;
+    padding: 10px 30px 10px 30px;
+    background-color: rgb(28,50,38);
+
+    columns: 2;
+    column-width: 300px;
+    column-gap: 50px;
+
+    overflow: hidden;
+    scrollbar-width: none; 
+    scroll-snap-type: x mandatory;  
+    scroll-behavior: smooth;
+}
+
+.rodadas__container:nth-child(10n){
+    border-color: rgba(255, 255, 255, 0);
+}

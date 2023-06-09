@@ -1,0 +1,12 @@
+.app{
+    display: block;
+    height: 100vh;
+    background-color: rgb(19,33,26); 
+    overflow-y: scroll;
+}
+
+.app__abas{
+    display: flex;
+    height: 100vh;
+    background-color: rgb(19,33,26); 
+}

@@ -1,0 +1,38 @@
+.simulador__main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 35%;
+}
+
+.simulador__botoes{
+    display: flex;
+    justify-content: space-around;
+    width: fit-content;
+}
+
+.simulador__botoes button{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+
+    height: 50px;
+    margin: 0px 5px 0px 5px;
+    padding: 16px 10px 16px 10px;
+
+    color: rgb(122, 255, 132);
+    background-color: rgba(0, 0, 0, 0);
+
+    border-color: rgb(70, 140, 79);
+    border: solid;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.simulador__botoes button:hover{
+    background-color: rgb(52, 101, 61);
+    cursor: pointer;
+}
+

@@ -1,0 +1,87 @@
+.container__tabela{
+    flex: display;
+    height: max-content;
+    width: 65%;
+    padding: 15px;
+
+    color: whitesmoke;
+    font-weight: thin;
+}  
+
+.tabela__classificacao{
+    padding: 10px;
+    background-color: rgb(28,50,38);
+    border-radius: 22px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.legenda{
+    display: flex;
+    font-size: 25px;
+    padding: 0px 2px 0px 2px;
+    color: rgb(94, 116, 104);
+    border-bottom: 1px solid;
+    border-color: rgb(94, 116, 104);
+}
+
+.linha{
+    display: flex;
+    font-size: 20px;
+    padding: 1px 2px 1px 2px;   
+}
+
+.linha:hover{
+    background-image:linear-gradient(to right, rgb(28,50,38) 0%, 
+    rgb(22,36,28) 8%, rgb(22,36,28) 85%, rgb(28,50,38) 100%);
+
+}
+
+.colocacao{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42.5px;
+    height: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin: 2px;
+    border-radius: 50%;
+}
+.linha:nth-of-type(-n+13) .colocacao{
+    color: rgb(28,50,38);
+    background-color: #288eea;    
+}
+
+.linha:nth-of-type(-n+7) .colocacao{
+    color: rgb(28,50,38);
+    background-color: #80ea79;    
+}
+
+.linha:nth-of-type(-n+5) .colocacao{
+    background-color: #3bb552;    
+}
+
+.linha:nth-last-child(-n+4) .colocacao{
+    color: rgb(28,50,38);
+    background-color: #ef5158;    
+}
+
+.time{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#nome{
+    display: flex;
+    width: 40%;
+    justify-content: flex-start;
+}
+
+.time div{
+    display: flex;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+}
+    

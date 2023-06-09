@@ -1,0 +1,74 @@
+.jogo{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 44px;
+    width: 100%;
+    padding: 8px;
+    
+    background-color: rgb(28,50,38);
+    color: white;
+  
+    border-bottom: 1px solid;
+    border-color: rgb(62,81,70);
+
+    scroll-snap-align: center;         
+}
+
+.jogo:hover{
+    background-image:linear-gradient(to right, rgb(28,50,38), rgb(22,36,28), rgb(28,50,38));
+
+}
+
+.jogo:nth-of-type(10n){
+    border-bottom-width: 0px;
+}
+
+.main__placar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80px;
+}
+
+.placar{
+    margin: 2px;
+    height: 18px;
+    width: 16px; 
+    border-width: 0px;
+    border-radius: 4px;
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+.nome{   
+    text-align: center; 
+    width: 50px;
+    font-size: 17px;
+    font-weight: lighter;
+    margin: 6px 6px 6px 0px;
+}
+
+
+
+.img__escudo {
+    height: 28px;
+    width: 40px;
+    text-align: center;
+    margin: 1px;
+}
+
+img{
+    height: 28px;
+}
+
+p{
+    margin: 4px;
+    font-size: 8px;
+    color: rgb(136, 136, 136);
+}
