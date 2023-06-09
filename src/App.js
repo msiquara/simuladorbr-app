@@ -65,7 +65,7 @@ function App() {
 
     const insertTimes = async (time) => {  
         try{
-			const response = await fetch(`${process.env.REACT_APP_SERVERURL}/times`,{
+			const response = await fetch(`https://simuladorbr-server.up.railway.app/times`,{
 				method: "POST",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(time)
@@ -77,7 +77,7 @@ function App() {
 
     const updateTimes = async (time) => {  
         try{
-			const response = await fetch(`${process.env.REACT_APP_SERVERURL}/times/${time.id}`,{
+			const response = await fetch(`https://simuladorbr-server.up.railway.app/times/${time.id}`,{
 				method: "PUT",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(time)
