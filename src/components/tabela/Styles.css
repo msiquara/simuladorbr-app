@@ -80,7 +80,7 @@
     background-color: #3bb552;    
 }
 
-.linha:nth-last-child(-n+4) .colocacao{
+.linha:nth-last-child(-n+5) .colocacao{
     color: rgb(28,50,38);
     background-color: #ef5158;    
 }
