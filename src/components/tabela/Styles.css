@@ -19,7 +19,10 @@
     background-color: rgb(28,50,38);
     border-radius: 22px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    cursor: default;
 }
+
+
 
 .tabela__titulo{
     display: flex;
@@ -47,7 +50,7 @@
 }
 
 .linha #nome{
-    width: 35.5%;
+    width: 36%;
 }
 
 .linha:hover{
