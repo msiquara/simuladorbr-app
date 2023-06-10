@@ -5,7 +5,8 @@ function Tabela({tabela}) {
   return (
     <div className='container__tabela'>
         <div className='tabela__classificacao'>
-            <div className='tabela__titulo'>Classificação</div>
+            <div>
+                <div className='tabela__titulo'>Classificação</div>
             <div className='legenda'>
                 <div className='colocacao'>#</div>
                 <div className='time'>
@@ -21,6 +22,8 @@ function Tabela({tabela}) {
                     <div id='pctg'>%</div>   
                 </div> 
             </div>
+            </div>
+            
             {tabela.map((time) => (
                 <div className='linha' id={'linha'+time.pos} key={time.pos}>
                     <div className='colocacao'>{time.pos}</div>
