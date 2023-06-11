@@ -14,7 +14,9 @@ function Simulador({
     proxRodada,
     antRodada,
     atualizaId,
-    listaRodadas
+    listaRodadas,
+    destaca, 
+    removeDestaca
 }) {
     return (
         <div className="simulador__main">
@@ -40,6 +42,8 @@ function Simulador({
                 antRodada = {antRodada}
                 atualizaId = {atualizaId}
                 listaRodadas = {listaRodadas}
+                destaca = {destaca}
+                removeDestaca = {removeDestaca}
             />
         </div>
     );

@@ -25,7 +25,7 @@ let jogosList2t = [];
 let jogo = ["", ""];
 
 //fisher-yates
-const shuffleArray = (times) => {
+const shuffleArray = () => {
     for (let i = times.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         const temp = times[i];
@@ -34,61 +34,61 @@ const shuffleArray = (times) => {
     }
 };
 
-function criarJogos(times, k, pos, jogo) {
-    if (k == 0) {
-        if (jogosList.length % 2 == 0){
-            jogosList = jogosList.concat({
-                id: jogosList.length,
-                nomeCasa: jogo[0],
-                golsCasa: '',
-                nomeVisitante: jogo[1],
-                golsVisitante: '',
-            });
-            jogosList2t = jogosList2t.concat({
-                id: jogosList.length + 189,
-                nomeCasa: jogo[1],
-                golsCasa: '',
-                nomeVisitante: jogo[0],
-                golsVisitante: '',
-            });
-            return
+function sortRodadas() {
+    shuffleArray();
+    var shuffleTimes = [];
+    shuffleTimes = shuffleTimes.concat(times);
+    var lista1 = shuffleTimes.slice(0, 10);
+    var lista2 = shuffleTimes.slice(10);
+    var matrizTimes = [[lista1], [lista2]];
+
+    for (let i = 0; i < times.length - 1; i++) {
+        for (let j = 0; j < times.length / 2; j++) {
+            if (i % 2 == 0) {
+                jogosList = jogosList.concat({
+                    id: jogosList.length,
+                    nomeCasa: matrizTimes[0][0][j],
+                    golsCasa: "",
+                    nomeVisitante: matrizTimes[1][0][j],
+                    golsVisitante: "",
+                });
+
+                jogosList2t = jogosList2t.concat({
+                    id: jogosList.length + 189,
+                    nomeCasa: matrizTimes[1][0][j],
+                    golsCasa: "",
+                    nomeVisitante: matrizTimes[0][0][j],
+                    golsVisitante: "",
+                });
+            } else {
+                jogosList = jogosList.concat({
+                    id: jogosList.length,
+                    nomeCasa: matrizTimes[1][0][j],
+                    golsCasa: "",
+                    nomeVisitante: matrizTimes[0][0][j],
+                    golsVisitante: "",
+                });
+
+                jogosList2t = jogosList2t.concat({
+                    id: jogosList.length + 189,
+                    nomeCasa: matrizTimes[0][0][j],
+                    golsCasa: "",
+                    nomeVisitante: matrizTimes[1][0][j],
+                    golsVisitante: "",
+                });
+            }
         }
 
-        jogosList = jogosList.concat({
-            id: jogosList.length,
-            nomeCasa: jogo[1],
-            golsCasa: '',
-            nomeVisitante: jogo[0],
-            golsVisitante: '',
-        });
-        jogosList2t = jogosList2t.concat({
-            id: jogosList.length + 189,
-            nomeCasa: jogo[0],
-            golsCasa: '',
-            nomeVisitante: jogo[1],
-            golsVisitante: '',
-        });
-        return    
-    }
+        var ultimo = matrizTimes[0][0].pop();
+        var primeiro = matrizTimes[1][0].shift();
 
-    for (let i = pos; i <= times.length - k; i++) {
-        jogo[jogo.length - k] = times[i];
-        criarJogos(times, k - 1, i + 1, jogo);
+        matrizTimes[0][0].splice(1, 0, primeiro);
+        matrizTimes[1][0] = matrizTimes[1][0].concat(ultimo);
     }
 }
-/*
-function sortRodadas(){
-    for (let i = 0; i < jogosList.length; i++){
 
-    }
-}
-*/
 export default function criarRodadas() {
-    jogosList = []
-    jogosList2t = []
-    shuffleArray(times);
-    criarJogos(times, 2, 0, jogo);
-    //sortRodadas()
+    sortRodadas();
     jogosList = jogosList.concat(jogosList2t);
     return jogosList;
 }

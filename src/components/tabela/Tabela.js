@@ -27,11 +27,13 @@ function Tabela({tabela}) {
             {tabela.map((time) => (
                 <div className='linha' id={'linha'+time.pos} key={time.pos}>
                     <div className='colocacao'>{time.pos}</div>
-                    <div className='time' id={time.id}>
-                        <div className="img__escudo" id={time.id} >
-                            <img src={require("/src/img/" + time.id.toLowerCase() + ".png")} alt={time.nome}/>
+                    <div className='time' id={time.id}>                        
+                        <div id='nome'>
+                            <div className="img__escudo" id={time.id} >
+                                <img src={require("/src/img/" + time.id.toLowerCase() + ".png")} alt={time.nome}/>
+                            </div>
+                            {time.nome}
                         </div>
-                        <div id='nome'>{time.nome}</div>
                         <div id='p' title='Pontos'>{time.pontos}</div>
                         <div id='j' title='Jogos'>{time.jogos}</div>
                         <div id='v' title='Vitórias'>{time.v}</div>

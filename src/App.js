@@ -103,8 +103,7 @@ function App() {
     }
     
     function registraCasa(id, value) {
-        console.log(value)
-        if ((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '')){
+        if (((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '') || (value != jogos[id].golsCasa && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== ''))){
             removeResultado(id)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
@@ -118,8 +117,8 @@ function App() {
     }
 
     function registraVisitante(id, value) {
-        console.log(value)
-        if ((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '')){
+        console.log(jogos[id].golsCasa, value)
+        if (((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '') || (value != jogos[id].golsVisitante && jogos[id].golsCasa !== '' && jogos[id].golsVisitante !== ''))){
             removeResultado(id)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
@@ -320,6 +319,7 @@ function App() {
             nomeCasa.pontos += 3
             nomeCasa.v += 1                
             nomeVisitante.d +=1
+            console.log('pontua: vitoria casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         else if(jogos[i].golsCasa === jogos[i].golsVisitante){
@@ -327,13 +327,14 @@ function App() {
             nomeVisitante.pontos += 1
             nomeCasa.e += 1
             nomeVisitante.e +=1
-            
+            console.log('pontua: empate', jogos[i].golsCasa, jogos[i].golsVisitante)            
         }
         
         else{
             nomeVisitante.pontos += 3                 
-            nomeCasa.d +=1               
-            nomeVisitante.v +=1     
+            nomeCasa.d += 1               
+            nomeVisitante.v += 1     
+            console.log('pontua: derrota casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         nomeCasa.pctg = nomeCasa.jogos === 0? 0: parseInt(100*nomeCasa.pontos/(3*nomeCasa.jogos))
@@ -358,10 +359,10 @@ function App() {
         setTabela(tempTabela)
     }
 
-    function removeResultado(i){      
-        console.log('remove')  
+    function removeResultado(i){   
         var nomeCasa = tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0] 
         var nomeVisitante = tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0] 
+         
         nomeCasa.jogos -= 1
         nomeVisitante.jogos -= 1
         
@@ -377,6 +378,7 @@ function App() {
             nomeCasa.pontos -= 3
             nomeCasa.v -= 1                
             nomeVisitante.d -=1
+            console.log('remove: vitoria casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         else if(jogos[i].golsCasa === jogos[i].golsVisitante){
@@ -384,6 +386,7 @@ function App() {
             nomeVisitante.pontos -= 1
             nomeCasa.e -= 1
             nomeVisitante.e -=1
+            console.log('remove: empate', jogos[i].golsCasa, jogos[i].golsVisitante)
             
         }
         
@@ -391,6 +394,7 @@ function App() {
             nomeVisitante.pontos -= 3                 
             nomeCasa.d -= 1               
             nomeVisitante.v -= 1     
+            console.log('remove: derrota casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         nomeCasa.pctg = nomeCasa.jogos === 0? 0: parseInt(100*nomeCasa.pontos/(3*nomeCasa.jogos))
@@ -405,10 +409,42 @@ function App() {
             pontuarTabela(i)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0]) 
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0]) 
-            console.log('pontua')
+            removeDestaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
+            //removeDestaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
         }
+
         setTabela(tempTabela)
+        
+        setTimeout(() => {
+            destaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
+        }, 100);
+        
+        console.log('registra', jogos[i])
+        
     } 
+
+    function destaca(nomeCasa, nomeVisitante){
+        const elcasa = document.querySelector("div.linha div[id="+nomeCasa+"]")
+        const elvisitante = document.querySelector("div.linha div[id="+nomeVisitante+"]")
+
+        elcasa.classList.add('destaca')
+        //'linear-gradient(90deg, rgba(28,50,38,1) 0%, rgba(255,255,255,0.19649858234309348) 60%, rgba(28,50,38,1) 100%)';
+        elvisitante.classList.add('destaca')
+
+        //document.querySelector(nomeCasa).classList.toggle('destaca')
+        //console.log(nomeCasa, nomeVisitante)
+    }
+
+    function removeDestaca(nomeCasa, nomeVisitante){
+        const elcasa = document.querySelector("div.linha div[id="+nomeCasa+"]")
+        const elvisitante = document.querySelector("div.linha div[id="+nomeVisitante+"]")
+
+        elcasa.classList.remove('destaca')
+        elvisitante.classList.remove('destaca')
+        
+        //console.log(nomeCasa, nomeVisitante)
+        //console.log(document.querySelector("div.linha div[id="+nomeCasa+"]"), document.querySelector("div.linha div[id="+nomeVisitante+"]"))
+    }
     
 
     return (
@@ -430,6 +466,8 @@ function App() {
                     antRodada = {antRodada}
                     atualizaId = {atualizaId}
                     listaRodadas = {listaRodadas}
+                    destaca = {destaca}
+                    removeDestaca = {removeDestaca}
                 />
             </div>
         </div>

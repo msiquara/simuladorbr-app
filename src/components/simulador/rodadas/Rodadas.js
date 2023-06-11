@@ -2,7 +2,7 @@ import React from "react";
 import "./Styles.css";
 import Jogo from './jogo/Jogo'
 
-function Rodadas({ jogos, registraCasa, registraVisitante, id, menu, proxRodada, antRodada, atualizaId, listaRodadas}) { 
+function Rodadas({ jogos, registraCasa, registraVisitante, id, menu, proxRodada, antRodada, atualizaId, listaRodadas, destaca, removeDestaca}) { 
     return (        
         <div className="rodadas__main">    
             <div className="rodadas__navbar">
@@ -53,7 +53,9 @@ function Rodadas({ jogos, registraCasa, registraVisitante, id, menu, proxRodada,
                         registraCasa = {registraCasa}
                         registraVisitante={registraVisitante}
                         golsCasa = {jogo.golsCasa}
-                        golsVisitante = {jogo.golsVisitante}       
+                        golsVisitante = {jogo.golsVisitante} 
+                        destaca = {destaca}      
+                        removeDestaca = {removeDestaca}
                     />                    
                 ))}             
                 <div style={{height:'40px'}} ></div>   
