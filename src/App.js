@@ -65,7 +65,7 @@ function App() {
 
     const insertTimes = async (time) => {  
         try{
-			const response = await fetch(`https://simuladorbr-server.up.railway.app/times`,{
+			const response = await fetch(`http://localhost:3001/times`,{
 				method: "POST",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(time)
@@ -77,11 +77,12 @@ function App() {
 
     const updateTimes = async (time) => {  
         try{
-			const response = await fetch(`https://simuladorbr-server.up.railway.app/times/${time.id}`,{
+			const response = await fetch(`http://localhost:3001/times/${time.id}`,{
 				method: "PUT",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(time)
 			})
+
             /* setTimeout(() => {
                 getTimes()
             }, 600);*/            
@@ -94,7 +95,7 @@ function App() {
 
     const getTimes = async (time) => {  
         try{
-			const response = await fetch(`${process.env.REACT_APP_SERVERURL}`)
+			const response = await fetch(`http://localhost:3001/times`)
             const json = await response.json()
             //setTabela(json)
 		} catch(err){
@@ -117,7 +118,6 @@ function App() {
     }
 
     function registraVisitante(id, value) {
-        console.log(jogos[id].golsCasa, value)
         if (((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '') || (value != jogos[id].golsVisitante && jogos[id].golsCasa !== '' && jogos[id].golsVisitante !== ''))){
             removeResultado(id)
             updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
@@ -319,22 +319,19 @@ function App() {
             nomeCasa.pontos += 3
             nomeCasa.v += 1                
             nomeVisitante.d +=1
-            console.log('pontua: vitoria casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         else if(jogos[i].golsCasa === jogos[i].golsVisitante){
             nomeCasa.pontos += 1
             nomeVisitante.pontos += 1
             nomeCasa.e += 1
-            nomeVisitante.e +=1
-            console.log('pontua: empate', jogos[i].golsCasa, jogos[i].golsVisitante)            
+            nomeVisitante.e +=1          
         }
         
         else{
             nomeVisitante.pontos += 3                 
             nomeCasa.d += 1               
             nomeVisitante.v += 1     
-            console.log('pontua: derrota casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         nomeCasa.pctg = nomeCasa.jogos === 0? 0: parseInt(100*nomeCasa.pontos/(3*nomeCasa.jogos))
@@ -353,7 +350,7 @@ function App() {
         for (let i = 0; i < tempTabela.length; i++){
             setTimeout(() => {
                 updateTimes(tempTabela[i]) 
-            }, 50);                                 
+            }, 80);                                 
         }
         
         setTabela(tempTabela)
@@ -378,7 +375,6 @@ function App() {
             nomeCasa.pontos -= 3
             nomeCasa.v -= 1                
             nomeVisitante.d -=1
-            console.log('remove: vitoria casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         else if(jogos[i].golsCasa === jogos[i].golsVisitante){
@@ -386,7 +382,6 @@ function App() {
             nomeVisitante.pontos -= 1
             nomeCasa.e -= 1
             nomeVisitante.e -=1
-            console.log('remove: empate', jogos[i].golsCasa, jogos[i].golsVisitante)
             
         }
         
@@ -394,7 +389,6 @@ function App() {
             nomeVisitante.pontos -= 3                 
             nomeCasa.d -= 1               
             nomeVisitante.v -= 1     
-            console.log('remove: derrota casa', jogos[i].golsCasa, jogos[i].golsVisitante)
         }
 
         nomeCasa.pctg = nomeCasa.jogos === 0? 0: parseInt(100*nomeCasa.pontos/(3*nomeCasa.jogos))
@@ -417,10 +411,7 @@ function App() {
         
         setTimeout(() => {
             destaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
-        }, 100);
-        
-        console.log('registra', jogos[i])
-        
+        }, 100);        
     } 
 
     function destaca(nomeCasa, nomeVisitante){
@@ -428,11 +419,7 @@ function App() {
         const elvisitante = document.querySelector("div.linha div[id="+nomeVisitante+"]")
 
         elcasa.classList.add('destaca')
-        //'linear-gradient(90deg, rgba(28,50,38,1) 0%, rgba(255,255,255,0.19649858234309348) 60%, rgba(28,50,38,1) 100%)';
         elvisitante.classList.add('destaca')
-
-        //document.querySelector(nomeCasa).classList.toggle('destaca')
-        //console.log(nomeCasa, nomeVisitante)
     }
 
     function removeDestaca(nomeCasa, nomeVisitante){
@@ -441,9 +428,6 @@ function App() {
 
         elcasa.classList.remove('destaca')
         elvisitante.classList.remove('destaca')
-        
-        //console.log(nomeCasa, nomeVisitante)
-        //console.log(document.querySelector("div.linha div[id="+nomeCasa+"]"), document.querySelector("div.linha div[id="+nomeVisitante+"]"))
     }
     
 
