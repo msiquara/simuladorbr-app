@@ -419,22 +419,24 @@ function App() {
         }, 100);        
     } 
 
-    function destaca(nomeCasa, nomeVisitante){
+    function destaca(nomeCasa, nomeVisitante, idPage){
         const elcasa = document.querySelector("div.linha div[id="+nomeCasa+"]")
         const elvisitante = document.querySelector("div.linha div[id="+nomeVisitante+"]")
-
         elcasa.classList.add('destaca')
         elvisitante.classList.add('destaca')
+
+        if (idPage % 10 == 0){
+            setId(idPage)
+            scrollRodada(idPage)
+        }
     }
 
     function removeDestaca(nomeCasa, nomeVisitante){
         const elcasa = document.querySelector("div.linha div[id="+nomeCasa+"]")
         const elvisitante = document.querySelector("div.linha div[id="+nomeVisitante+"]")
-
         elcasa.classList.remove('destaca')
         elvisitante.classList.remove('destaca')
-    }
-    
+    }    
 
     return (
         <div className="app">

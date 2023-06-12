@@ -15,7 +15,7 @@ export default function Jogo({ id, nomeCasa, nomeVisitante, registraCasa, regist
                     id={"golsCasa" + id}
                     value={golsCasa}
                     onChange={(e) => e.target.value.replace(/\D/g, '') == ''? registraCasa(id, ''): registraCasa(id, parseInt(e.target.value))}
-                    onFocus={() => destaca(nomeCasa, nomeVisitante)}
+                    onFocus={() => destaca(nomeCasa, nomeVisitante, id)}
                     onBlur={() => removeDestaca(nomeCasa, nomeVisitante)}
                     min={0}
                     max={9}
@@ -27,7 +27,7 @@ export default function Jogo({ id, nomeCasa, nomeVisitante, registraCasa, regist
                     id={"golsVisitante" + id}
                     value={golsVisitante}
                     onChange={(e) => e.target.value.replace(/\D/g, '') == ''? registraVisitante(id, ''): registraVisitante(id, parseInt(e.target.value))}
-                    onFocus={() => destaca(nomeCasa, nomeVisitante)}
+                    onFocus={() => destaca(nomeCasa, nomeVisitante, id)}
                     onBlur={() => removeDestaca(nomeCasa, nomeVisitante)}
                     min={0}
                     max={9}
