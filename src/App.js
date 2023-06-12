@@ -106,8 +106,6 @@ function App() {
     function registraCasa(id, value) {
         if (((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '') || (value != jogos[id].golsCasa && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== ''))){
             removeResultado(id)
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
         }
 
         jogos[id].golsCasa = value;
@@ -120,8 +118,6 @@ function App() {
     function registraVisitante(id, value) {
         if (((value === '' && jogos[id].golsVisitante !== '' && jogos[id].golsCasa !== '') || (value != jogos[id].golsVisitante && jogos[id].golsCasa !== '' && jogos[id].golsVisitante !== ''))){
             removeResultado(id)
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeCasa)})[0])
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[id].nomeVisitante)})[0])
         }
         
         jogos[id].golsVisitante = value;
@@ -395,14 +391,23 @@ function App() {
         nomeVisitante.pctg = nomeVisitante.jogos === 0? 0: parseInt(100*nomeVisitante.pontos/(3*nomeVisitante.jogos))
         
         sortTabela(tempTabela)
-        setTabela(tempTabela)        
+        setTabela(tempTabela)   
+
+        for (let i = 0; i < tempTabela.length; i++){
+            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0]) 
+            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0]) 
+        }     
     }
 
     function registraResultado(i){
         if (jogos[i].golsCasa !== '' && jogos[i].golsVisitante !== ''){
             pontuarTabela(i)
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0]) 
-            updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0]) 
+            for (let i = 0; i < tempTabela.length; i++){
+                updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0]) 
+                updateTimes(tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0]) 
+            }
+            
+            console.log('registra', tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0])
             removeDestaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
             //removeDestaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
         }
