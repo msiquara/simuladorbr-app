@@ -24,10 +24,10 @@ function Simulador({
                 <button className="botoes__criar" onClick={criarCampeonato}>
                     Criar Campeonato
                 </button>
-                <button className="botoes__preencher" onClick={marcaGols}>
+                <button className="botoes__preencher" disabled={jogos.length == 0} onClick={marcaGols}>
                     Marcar Gols
                 </button>
-                <button className="botoes__reset" onClick={resetaGols}>
+                <button className="botoes__reset" disabled={jogos.length == 0} onClick={resetaGols}>
                     Reset
                 </button>
             </div>

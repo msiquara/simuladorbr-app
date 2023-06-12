@@ -22,7 +22,7 @@ let times = [
 ];
 let jogosList = [];
 let jogosList2t = [];
-let jogo = ["", ""];
+//let jogo = ["", ""];
 
 //fisher-yates
 const shuffleArray = () => {
@@ -37,10 +37,11 @@ const shuffleArray = () => {
 function sortRodadas() {
     shuffleArray();
     var shuffleTimes = [];
+    var matrizTimes = []
     shuffleTimes = shuffleTimes.concat(times);
     var lista1 = shuffleTimes.slice(0, 10);
     var lista2 = shuffleTimes.slice(10);
-    var matrizTimes = [[lista1], [lista2]];
+    matrizTimes = [[lista1], [lista2]];
 
     for (let i = 0; i < times.length - 1; i++) {
         for (let j = 0; j < times.length / 2; j++) {
@@ -88,6 +89,8 @@ function sortRodadas() {
 }
 
 export default function criarRodadas() {
+    jogosList = [];
+    jogosList2t = [];
     sortRodadas();
     jogosList = jogosList.concat(jogosList2t);
     return jogosList;

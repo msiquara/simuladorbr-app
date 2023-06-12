@@ -36,3 +36,8 @@
     cursor: pointer;
 }
 
+.simulador__botoes button:disabled{
+    color: rgba(122, 255, 133, 0.336);
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0);    
+}
