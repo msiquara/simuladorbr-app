@@ -22,7 +22,6 @@
 
     border-bottom: 1px solid;
     border-color: rgb(62,81,70);
-    cursor: pointer;
 }
 
 .menu__conteudo {
@@ -99,6 +98,7 @@
     border: 0px;
     border-radius: 10px;
     padding: 5px 14px 5px 14px;
+    cursor: pointer;
 }
 
 .navbar__rodada:hover{
@@ -128,13 +128,17 @@
 
 @media only screen and (max-width: 440px){
     .rodadas__container{
-        padding: 5px 30px 5px 30px;
-        margin: 5px;
+        padding: 0px;
+        margin: 0px;
     }
 
     .rodadas__main{
-        width: 95vw;
+        width: 92vw;
         padding: 0px 5px 0px 5px;
         border-radius: 12px;
+    }
+
+    .rodadas__navbar{
+        padding: 10px;
     }
 }
