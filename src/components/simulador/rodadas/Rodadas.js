@@ -19,7 +19,6 @@ function Rodadas({ jogos, registraCasa, registraVisitante, id, menu, proxRodada,
                     onClick={listaRodadas}
                 >
                     {"Rodada " + (id + 10) / 10}
-                    <span id="seta">▾</span>
                     <div id="menu" className="menu__conteudo">
                         {menu.map((item) => {
                             return (

@@ -244,7 +244,6 @@ function App() {
 
     function listaRodadas() {
         document.getElementById("menu").classList.toggle("show");
-        document.getElementById("seta").classList.toggle("show");
     }
 
     window.onclick = function (event) {

@@ -22,11 +22,12 @@
 
     border-bottom: 1px solid;
     border-color: rgb(62,81,70);
+    cursor: pointer;
 }
 
 .menu__conteudo {
     display: none;
-    position: fixed;
+    position: absolute;
     background-color: rgb(28,50,38);
     max-height: 280px;
     width: 170px;
@@ -36,8 +37,9 @@
 
     border-radius: 2px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-
-    right: 1;
+    
+    left: 0;    
+    top: 100%;
 }
 
 .menu__conteudo a {
@@ -54,13 +56,6 @@
 
 .show {
     display: block;
-}
-
-#seta.show{
-    display: inline;
-    width: fit-content;
-    transform: rotate('90deg');
-    transition: 'transform 200ms ease';
 }
 
 .botao{
@@ -91,6 +86,7 @@
 
 .navbar__rodada{
     display: flex;
+    position: relative;
     align-items: center;
     color: rgb(209, 210, 212);
     background-color: rgb(22,36,28);
@@ -128,4 +124,17 @@
 
 .rodadas__container:nth-child(10n){
     border-color: rgba(255, 255, 255, 0);
+}
+
+@media only screen and (max-width: 440px){
+    .rodadas__container{
+        padding: 5px 30px 5px 30px;
+        margin: 5px;
+    }
+
+    .rodadas__main{
+        width: 95vw;
+        padding: 0px 5px 0px 5px;
+        border-radius: 12px;
+    }
 }
