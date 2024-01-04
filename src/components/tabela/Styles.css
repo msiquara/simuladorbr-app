@@ -22,8 +22,6 @@
     cursor: default;
 }
 
-
-
 .tabela__titulo{
     display: flex;
     justify-content: center;
@@ -76,6 +74,7 @@
     margin: 2px;
     border-radius: 50%;
 }
+
 .linha:nth-of-type(-n+13) .colocacao{
     color: rgb(28,50,38);
     background-color: #288eea;    
@@ -130,4 +129,63 @@
     
 .desempate{
     margin: 30px 22px 20px 33px;
+}
+
+@media only screen and (max-width: 440px){
+    .container__tabela{
+        width: 100vw;
+        padding: 4px;
+        margin-left: 0px;
+        margin-right: 1px;
+    }
+
+    .tabela__classificacao{
+        width: 98vw;
+        padding: 0px;
+        border-radius: 11px;
+    }
+
+    .tabela__titulo{
+        font-size: 18px;
+    }
+
+    .legenda{
+        font-size: 18px;
+    }
+
+    .legenda .time #nome{
+        width: 44%;
+    }
+
+    .linha{
+        font-size: 15px;        
+    }
+
+    .linha #nome{
+        width: 44%;
+    }
+
+    .colocacao{
+        width: 33px;
+        height: 30px;    
+        font-size: 19px;
+        font-weight: bold;
+        margin: 1px;
+    }
+    
+    .time .img__escudo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 29px;      
+    }
+
+    #gp, #gc{
+        display: none;
+    }
+
+    .desempate{
+        font-size: 13px;
+        margin: 12px 10px 9px 25px;
+    }
 }

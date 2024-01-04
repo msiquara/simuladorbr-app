@@ -355,6 +355,8 @@ function App() {
     function removeResultado(i){   
         var nomeCasa = tempTabela.filter(time => {return time.id.includes(jogos[i].nomeCasa)})[0] 
         var nomeVisitante = tempTabela.filter(time => {return time.id.includes(jogos[i].nomeVisitante)})[0] 
+
+        removeDestaca(jogos[i].nomeCasa, jogos[i].nomeVisitante)
          
         nomeCasa.jogos -= 1
         nomeVisitante.jogos -= 1

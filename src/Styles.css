@@ -10,3 +10,12 @@
     height: 100vh;
     background-color: rgb(19,33,26); 
 }
+
+@media only screen and (max-width: 440px){
+    .app{
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        scrollbar-width: none; 
+    }
+}
