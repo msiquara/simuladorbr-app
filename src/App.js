@@ -249,8 +249,8 @@ function App() {
     window.onclick = function (event) {
         if (!event.target.matches(".navbar__rodada")) {
             var menu = document.getElementsByClassName("menu__conteudo");
-            var i;
-            for (i = 0; i < menu.length; i++) {
+            
+            for (let i = 0; i < menu.length; i++) {
                 var abreMenu = menu[i];
                 if (abreMenu.classList.contains("show")) {
                     abreMenu.classList.remove("show");
