@@ -1,6 +1,6 @@
 .app{
     display: block;
-    height: 100vh;
+    height: 100dvh;
     background-color: rgb(19,33,26); 
     overflow-y: scroll;
 }
@@ -8,7 +8,7 @@
 .app__abas{
     display: flex;
     justify-content: space-evenly;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
     background-color: rgb(19,33,26); 
    
@@ -16,8 +16,8 @@
 
 @media only screen and (max-width: 860px){
     .app{
-        height: 100vh;
-        width: 100vw;
+        height: 100dvh;
+        width: 100dvw;
         overflow: hidden;
     }
 
