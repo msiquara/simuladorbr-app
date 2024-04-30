@@ -43,7 +43,7 @@
 
 @media only screen and (max-width: 860px){
     .simulador__main{
-        height: 100dvh;
+        height: 100svh;
         justify-content: space-around;
         width: 100dvw;
     }
