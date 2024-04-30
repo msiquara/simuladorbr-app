@@ -133,7 +133,7 @@
     }
 
     .rodadas__main{
-        width: 92vw;
+        width: fit-content;
         padding: 0px 5px 0px 5px;
         border-radius: 12px;
     }
