@@ -1,8 +1,5 @@
 .container__tabela{
-    height: max-content;
-    width: 60%;
-    padding: 15px;
-    
+    height: fit-content;    
     color: whitesmoke;
     font-weight: thin;
 }  
@@ -12,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
-    min-height: 100vh;
+    min-height: 92dvh;
     padding: 10px;
     background-color: rgb(28,50,38);
     border-radius: 22px;
@@ -131,16 +128,18 @@
 
 @media only screen and (max-width: 860px){
     .container__tabela{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100vw;
-        padding: 4px;
-        margin-left: 0px;
-        margin-right: 1px;
     }
 
     .tabela__classificacao{
-        width: 98vw;
-        padding: 0px;
+        width: 93dvw;
+        height: fit-content;
         border-radius: 11px;
+        padding: 8px;
+        padding-top: 3px;
     }
 
     .tabela__titulo{

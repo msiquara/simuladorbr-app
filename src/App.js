@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "./Styles.css";
+import "./App.css";
 import Tabela from "./components/tabela/Tabela.js";
 import Simulador from "./components/simulador/Simulador.js";
 import criarRodadas from "./scripts/criarRodadas.js";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styles.css";
+import "./Rodadas.css";
 import Jogo from './jogo/Jogo'
 
 function Rodadas({ jogos, registraCasa, registraVisitante, id, menu, proxRodada, antRodada, atualizaId, listaRodadas, destaca, removeDestaca}) { 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styles.css";
+import "./Jogo.css";
 
 export default function Jogo({ id, nomeCasa, nomeVisitante, registraCasa, registraVisitante, golsCasa, golsVisitante, destaca, removeDestaca}) {   
     return (

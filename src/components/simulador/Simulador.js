@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styles.css";
+import "./Simulador.css";
 import Rodadas from "./rodadas/Rodadas";
 
 function Simulador({
